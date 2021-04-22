@@ -1,14 +1,11 @@
 import express from "express";
+import "./database";
+import { routes } from "./routes";
 
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  return res.json({ message: "Hello from chat app!" });
-});
-
-app.post("/users", (req, res) => {
-  return res.json({ message: "User registered!" });
-});
+app.use(routes);
 
 app.listen(3333, () => {
   console.log("🚀 Server running on port ", 3333);
