@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import { SettingsRepository } from "../repositories/SettingsRepositories";
+import { SettingsRepository } from "../repositories/SettingsRepository";
 
 interface ISettingsServices {
   chat: boolean;
