@@ -1,0 +1,42 @@
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
+import { v4 as uuid } from "uuid";
+import { User } from "./User";
+
+@Entity("connections")
+class Connection {
+  @PrimaryColumn()
+  id: string;
+
+  @Column()
+  admin_id: string;
+
+  // if we need more user info we can:
+  @JoinColumn({ name: "user_id" })
+  @ManyToOne(() => User) // One user can have multiple messages
+  user: User;
+
+  @Column()
+  user_id: string;
+
+  @Column()
+  socket_id: string;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @CreateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if (!this.id) this.id = uuid();
+  }
+}
+
+export { Connection };
