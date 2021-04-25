@@ -16,7 +16,7 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
     };
     socket.emit("client_first_access", params, (call, err) => {
       if (err) {
-        console.log("🐛 ~ socket.emit ~ err", err);
+        console.error("🐛 ~ socket.emit ~ err", err);
       } else {
         console.log("🚀 ~ socket.emit ~ call", call);
       }

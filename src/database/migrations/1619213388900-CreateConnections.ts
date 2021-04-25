@@ -20,6 +20,7 @@ export class CreateConnections1619213388900 implements MigrationInterface {
             name: "admin_id",
             type: "uuid",
             isNullable: true,
+            generationStrategy: "increment",
           },
           {
             name: "user_id",
@@ -46,7 +47,7 @@ export class CreateConnections1619213388900 implements MigrationInterface {
     await queryRunner.createForeignKey(
       "connections",
       new TableForeignKey({
-        name: "FKConnections",
+        name: "FKConnectionsUser",
         referencedTableName: "users",
         referencedColumnNames: ["id"],
         columnNames: ["user_id"],
@@ -57,7 +58,7 @@ export class CreateConnections1619213388900 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey("connections", "FKConnections");
+    await queryRunner.dropForeignKey("connections", "FKConnectionsUser");
     await queryRunner.dropTable("connections");
   }
 }
