@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
@@ -18,8 +19,8 @@ class Connection {
   admin_id: string;
 
   // if we need more user info we can:
-  @JoinColumn({ name: "user_id" })
   @ManyToOne(() => User) // One user can have multiple messages
+  @JoinColumn({ name: "user_id" })
   user: User;
 
   @Column()
@@ -31,7 +32,7 @@ class Connection {
   @CreateDateColumn()
   created_at: Date;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   updated_at: Date;
 
   constructor() {

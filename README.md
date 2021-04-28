@@ -6,9 +6,12 @@
 
 ## Routes
 
-### `/settings`
+| Route       | Type | Input |
+| ----------- | :--: | ----: |
+| `/settings` | POST |     1 |
 
 ```json
+1.
 {
   "chat": true,
   "username": "Jonathan"

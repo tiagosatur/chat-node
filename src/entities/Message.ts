@@ -18,8 +18,8 @@ class Message {
   admin_id: string;
 
   // if we need more user info we can:
-  @JoinColumn({ name: "user_id" })
   @ManyToOne(() => User) // One user can have multiple messages
+  @JoinColumn({ name: "user_id" })
   user: User;
 
   @Column()
