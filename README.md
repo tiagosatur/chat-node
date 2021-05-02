@@ -1,8 +1,15 @@
 # Chat app :fire:
 
-A node websocket sqlite chat app built in NLW5 with learning purposes.
+Chat app built in NLW5 with learning purposes
 
-It uses pure html-css-js (no frontend framewoks).
+## Stack
+
+- Node.JS
+- Typescript
+- Websocket
+- Sqlite
+- TypeORM
+- CSS
 
 ## Next steps :shoe:
 
@@ -15,6 +22,7 @@ It uses pure html-css-js (no frontend framewoks).
 ## First access
 
 `yarn install`
+
 `yarn typeorm migration:run`
 
 ## Subsequent access
