@@ -14,9 +14,14 @@ app.set("views", path.join(__dirname, "..", "public"));
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
-// Render view
+// Render client view
 app.get("/pages/client", (request: Request, response: Response) => {
   return response.render("html/client.html");
+});
+
+// Render admin view
+app.get("/pages/admin", (request: Request, response: Response) => {
+  return response.render("html/admin.html");
 });
 
 const http = createServer(app);
